@@ -26,7 +26,7 @@ class Database
         $this->_username="s27923517";
         $this->_password="punyamapunpun";
         $this->_db="FIT2104";
-        $this->_host="130.194.7.82";
+        $this->_host='130.194.7.82';
     }
 
     public function connDB()
