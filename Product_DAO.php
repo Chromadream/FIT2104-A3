@@ -28,8 +28,8 @@ class Product_DAO
                   AND pc.category_id = c.category_id AND p.product_id = pc.product_id";
         $prepared_sql = mysqli_prepare($this->_conn,$sql);
         $prepared_sql->bind_param('ssd',$cat_search,$name_search,$max_price);
-        $cat_search = "'%".$cat."%'";
-        $name_search = "'%".$name."%'";
+        $cat_search = "%".$cat."%";
+        $name_search = "%".$name."%";
         $prepared_sql->execute();
         $result = $prepared_sql->get_result();
         if($result->num_rows > 0)
