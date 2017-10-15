@@ -12,7 +12,8 @@
     if(empty($_POST["cat"]))
     {?>
 <div class="container-fluid">
-    <h1>Search A Product</h1>
+    <h1>Famox Product Search</h1>
+    <p class="lead">Search a product based from its Category, Name, and Maximum Sale Price.</p>
     <form method="post" action="Search.php">
 <table>
     <tr>
