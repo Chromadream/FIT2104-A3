@@ -10,7 +10,7 @@
 <?php
     if(empty($_POST["cat"]))
     {?>
-<div class="container">
+<div class="container-fluid">
     <h1>Search A Product</h1>
     <form method="post" action="Search.php">
 <table>
@@ -44,9 +44,10 @@ $prod = new Product_DAO($conn->getConn());
             if($result = $prod->find_prod($_POST["cat"], $_POST["name"], $_POST["max_price"]))
             {?>
 
-<div class="container">
+<div class="container-fluid">
     <h1>Found Products</h1>
-<table border="1">
+<table class="table table-striped">
+    <thead class="thead-inverse">
     <tr>
         <th>ID</th>
         <th>Name</th>
@@ -54,6 +55,8 @@ $prod = new Product_DAO($conn->getConn());
         <th>Sale Price</th>
         <th>Country of Origin</th>
     </tr>
+    </thead>
+    <tbody>
     <?php for ($i = 0; $i < $result->rowCount(); $i++) {
         $currentRow = $result->getNext(new Product_DAO($conn->getConn()), $i); ?>
         <tr>
@@ -64,7 +67,7 @@ $prod = new Product_DAO($conn->getConn());
             <td><?php echo $currentRow->product_country_of_origin; ?></td>
         </tr>
     <?php }
-    echo "</table>";
+    echo "</tbody></table>";
     echo "<br/> <a href='Search.php'><button type='button' class='btn btn-primary'>Do another search</button></a></div>";
     }
     else {
