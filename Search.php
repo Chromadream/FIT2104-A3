@@ -68,7 +68,7 @@ $prod = new Product_DAO($conn->getConn());
         </tr>
     <?php }
     echo "</tbody></table>";
-    echo "<br/> <a href='Search.php'><button type='button' class='btn btn-primary'>Do another search</button></a></div>";
+    echo "<a href='Search.php'><button type='button' class='btn btn-primary'>Do another search</button></a></div>";
     }
     else {
         echo "There is no result for the specified search query.<br/><a href='Search.php'><button type='button' class='btn btn-primary'>Do another search</button></a>";
