@@ -10,9 +10,9 @@
 <?php
     if(empty($_POST["cat"]))
     {?>
-<h1>Search A Product</h1>
 <div class="container">
-<form method="post" action="Search.php">
+    <h1>Search A Product</h1>
+    <form method="post" action="Search.php">
 <table>
     <tr>
         <td>Category</td>
@@ -43,8 +43,9 @@ require_once("Product_DAO.php");
 $prod = new Product_DAO($conn->getConn());
             if($result = $prod->find_prod($_POST["cat"], $_POST["name"], $_POST["max_price"]))
             {?>
-<h1>Found Products</h1>
+
 <div class="container">
+    <h1>Found Products</h1>
 <table border="1">
     <tr>
         <th>ID</th>
