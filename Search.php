@@ -15,23 +15,21 @@
     <h1>Famox Product Search</h1>
     <p class="lead">Search a product based from its Category, Name, and Maximum Sale Price.</p>
     <form method="post" action="Search.php">
-<table>
-    <tr>
-        <td>Category</td>
-        <td><input type="text" name="cat" placeholder="Category Name"></td>
-    </tr>
-    <tr>
-        <td>Name</td>
-        <td><input type="text" name="name" placeholder="Product Name"></td>
-    </tr>
-    <tr>
-        <td>Maximum Sale Price</td>
-        <td><input type="number" name="max_price" placeholder="Maximum Sale Price"></td>
-    </tr>
-    <tr>
-        <td><input type="submit" value="Search" class='btn btn-primary'></td>
-    </tr>
-</table>
+        <div class="form-group">
+            <label for="Category_ID">Category</label>
+            <input type="text" class="form-control" name="cat" id="Category_ID" placeholder="Category Name" aria-describedby="halp">
+            <small id="halp" class="form-text text-muted">Not case sensitive. Partial keyword are also supported</small>
+        </div>
+        <div class="form-group">
+            <label for="Name_ID">Product Name</label>
+            <input type="text" class="form-control" name="name" id="Name_ID" placeholder="Product Name" aria-describedby="halp">
+        </div>
+        <div class="form-group">
+            <label for="Max_ID">Sale Price</label>
+            <input type="number" class="form-control" name="max_price" id="Max_ID" placeholder="Sale Price" aria-describedby="max_price_help">
+            <small id="max_price_help" class="form-text text-muted">Please provide maximum sale price for the search</small>
+        </div>
+        <button type="submit" class="btn btn-outline-primary btn-lg">Search</button>
 </form>
 </div>
     <?php }
