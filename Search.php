@@ -38,12 +38,12 @@
         </div>
         <div class="form-group">
             <label for="Name_ID">Product Name</label>
-            <input type="text" class="form-control" name="name" id="Name_ID" placeholder="Enter product name" aria-describedby="halp">
+            <input type="text" class="form-control" name="name" id="Name_ID" placeholder="Enter product name" aria-describedby="halp" required>
             <small id="halp" class="form-text text-muted">Not case sensitive. Partial keyword are also supported</small>
         </div>
         <div class="form-group">
             <label for="Max_ID">Sale Price</label>
-            <input type="number" class="form-control" name="max_price" id="Max_ID" placeholder="Enter sale price" aria-describedby="max_price_help">
+            <input type="number" class="form-control" name="max_price" id="Max_ID" placeholder="Enter sale price" aria-describedby="max_price_help" required>
             <small id="max_price_help" class="form-text text-muted">Please provide maximum sale price for the search</small>
         </div>
         <button type="submit" class="btn btn-outline-primary btn-lg">Search</button>
