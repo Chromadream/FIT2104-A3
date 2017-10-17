@@ -24,11 +24,10 @@ class Product_DAO
     public function find_prod($cat,$name,$max_price)
     {
         $sql = "SELECT p.* FROM PRODUCT p, CATEGORY c, PRODUCT_CATEGORY pc 
-                  WHERE c.CATEGORY_NAME LIKE ? AND p.product_name LIKE ? AND p.product_sale_price <= ? 
+                  WHERE c.category_id = ? AND p.product_name LIKE ? AND p.product_sale_price <= ? 
                   AND pc.category_id = c.category_id AND p.product_id = pc.product_id";
         $prepared_sql = mysqli_prepare($this->_conn,$sql);
-        $prepared_sql->bind_param('ssd',$cat_search,$name_search,$max_price);
-        $cat_search = "%".$cat."%";
+        $prepared_sql->bind_param('dsd',$cat,$name_search,$max_price);
         $name_search = "%".$name."%";
         $prepared_sql->execute();
         $result = $prepared_sql->get_result();
