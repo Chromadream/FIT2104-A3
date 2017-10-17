@@ -10,15 +10,31 @@
 <body>
 <?php
     if(empty($_POST["cat"]))
-    {?>
+    {
+        require_once("Database.php");
+        $conn = new Database();
+        if($conn->checkConn())
+        {
+            require_once("Category_DAO.php");
+            $cat = new Category_DAO($conn->getConn());
+            $result = $cat->returnCat();
+        }
+        ?>
 <div class="container-fluid">
     <h1>Famox Product Search</h1>
     <p class="lead">Search a product based from its Category, Name, and Maximum Sale Price.</p>
     <form method="post" action="Search.php">
         <div class="form-group">
             <label for="Category_ID">Category</label>
-            <input type="text" class="form-control" name="cat" id="Category_ID" placeholder="Enter category" aria-describedby="halp">
-            <small id="halp" class="form-text text-muted">Not case sensitive. Partial keyword are also supported</small>
+            <select class="form-control" name="cat">
+                <?php
+                for($i = 0;$i<$result->rowCount();$i++)
+                {
+                    $current = $result->getNext(new Category_DAO($conn->getConn()),$i);
+                    echo "<option value='$current->category_id'>$current->category_name</option>";
+                }
+                ?>
+            </select>
         </div>
         <div class="form-group">
             <label for="Name_ID">Product Name</label>
